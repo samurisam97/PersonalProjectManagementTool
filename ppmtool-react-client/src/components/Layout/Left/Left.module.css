@@ -8,5 +8,6 @@
 
 .Left a {
   text-decoration: none;
+  padding-left: 12px;
   color: steelblue;
 }
