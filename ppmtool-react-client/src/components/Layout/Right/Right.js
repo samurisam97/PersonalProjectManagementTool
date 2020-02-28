@@ -7,22 +7,19 @@ import classes from './Right.module.css';
 class Right extends Component {
   render() {
     return (
-      <div className={classes.Right}>
+      <ul className={classes.Right}>
         <ul>
           <li>
-            <DashLink />
+            <Login />
           </li>
-        </ul>
-
-        <ul>
           <li>
             <SignUp />
           </li>
           <li>
-            <Login />
+            <DashLink />
           </li>
         </ul>
-      </div>
+      </ul>
     );
   }
 }

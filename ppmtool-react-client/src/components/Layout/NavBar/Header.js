@@ -6,15 +6,16 @@ import Right from '../Right/Right';
 class Header extends Component {
   render() {
     return (
-      <nav className={classes.Header}>
-        <div>
+      <ul className={classes.Header}>
+        <nav>
           <ul>
             <PageTitle />
-
-            <Right />
           </ul>
-        </div>
-      </nav>
+          <ul>
+            <Right className={classes.HeaderRight} />
+          </ul>
+        </nav>
+      </ul>
     );
   }
 }
