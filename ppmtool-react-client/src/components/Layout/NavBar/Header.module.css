@@ -1,0 +1,27 @@
+.Header {
+  width: 100%;
+  margin: 0 0 3em 0;
+  padding: 4px 4px 4px;
+  list-style-type: none;
+  background-color: black;
+  border-bottom: 1px solid #333;
+  border-top: 1px solid #333;
+  color: steelblue;
+}
+
+.HeaderNav a {
+  color: cornflowerblue;
+}
+
+.Header ul {
+  list-style-type: none;
+  display: inline;
+  margin: 0 0 3em 0;
+  padding: 4px 4px 4px;
+}
+
+.Header li {
+  display: inline;
+  margin: 0 0 3em 0;
+  padding: 4px 4px 4px;
+}

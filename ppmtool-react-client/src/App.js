@@ -1,12 +1,11 @@
 import React from 'react';
-import './App.css';
+import classes from './App.module.css';
 import Dashboard from './components/Dashboard';
-import Header from './components/Layout/Header';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './components/Layout/NavBar/Header';
 
 function App() {
   return (
-    <div className="App">
+    <div className={classes.App}>
       <Header />
       <Dashboard />
     </div>

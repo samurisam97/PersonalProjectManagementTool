@@ -1,0 +1,9 @@
+.Right {
+  text-align: right;
+  display: inline;
+}
+
+.Right a {
+  text-decoration: none;
+  color: whitesmoke;
+}

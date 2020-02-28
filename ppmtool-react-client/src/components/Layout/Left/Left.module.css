@@ -1,0 +1,9 @@
+.Left {
+  text-align: left;
+  display: inline;
+}
+
+.Left a {
+  text-decoration: none;
+  color: steelblue;
+}
