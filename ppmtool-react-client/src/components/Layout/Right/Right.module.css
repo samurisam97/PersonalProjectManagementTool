@@ -10,12 +10,12 @@
 
 .Right li a {
   text-align: right;
-  padding: 7px 10px 12px 10px;
+  padding: 7px 10px 11px 10px;
   text-decoration: none;
   color: whitesmoke;
 }
 
 .Right li a:hover {
   cursor: pointer;
-  background-color: rgb(25, 25, 26);
+  background-color: #24272b;
 }

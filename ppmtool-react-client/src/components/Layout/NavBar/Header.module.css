@@ -2,14 +2,9 @@
   width: 100%;
   margin: 0 0 3em 0;
   padding: 4px 0 4px;
-  background-color: black;
-  border-bottom: 1px solid #333;
-  border-top: 1px solid #333;
-  color: steelblue;
-}
-
-.HeaderRight {
-  text-align: right;
+  background-color: #07070a;
+  border-bottom: 1px solid #4a525a;
+  color: #3e78b2;
 }
 
 .Header ul {
