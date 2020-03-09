@@ -7,16 +7,15 @@ import {
   DELETE_PROJECT,
   INVALID_IDENTIFICATION,
   INVALID_TITLE,
-  INVLAID_DESCRIPTION,
-  VALID_IDENTIFICATION,
-  VALID_TITLE,
-  VLAID_DESCRIPTION
+  INVLAID_DESCRIPTION
 } from './properties';
 
 export const toggleUpdateMode = index => {
   return {
     type: TOGGLE_UPDATE_MODE,
-    payload: { index }
+    payload: {
+      index
+    }
   };
 };
 
@@ -59,10 +58,7 @@ export const updateIdentification = (index, identification) => {
 };
 
 export const updateTitle = (index, title, oldTitle) => {
-  if (
-    title.length > 22 ||
-    (title === '' && oldTitle === 'Title: less than 23 long')
-  ) {
+  if (title.length > 22 || title === '') {
     return {
       type: INVALID_TITLE,
       payload: {
@@ -93,61 +89,4 @@ export const deleteProject = index => {
       index
     }
   };
-};
-
-export const validateIdentification = (index, identification) => {
-  if (identification.length !== 5) {
-    return {
-      type: INVALID_IDENTIFICATION,
-      payload: {
-        index
-      }
-    };
-  } else {
-    return {
-      type: VALID_IDENTIFICATION,
-      payload: {
-        index
-      }
-    };
-  }
-};
-
-export const validateTitle = (index, title, oldTitle) => {
-  if (
-    title.length > 22 ||
-    (title === '' && oldTitle === 'Title: less than 23 long')
-  ) {
-    return {
-      type: INVALID_TITLE,
-      payload: {
-        index
-      }
-    };
-  } else {
-    return {
-      type: VALID_TITLE,
-      payload: {
-        index
-      }
-    };
-  }
-};
-
-export const validateDescription = (index, description) => {
-  if (description.length > 130) {
-    return {
-      type: INVLAID_DESCRIPTION,
-      payload: {
-        index
-      }
-    };
-  } else {
-    return {
-      type: VLAID_DESCRIPTION,
-      payload: {
-        index
-      }
-    };
-  }
 };

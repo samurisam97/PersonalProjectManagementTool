@@ -6,76 +6,74 @@ import {
   updateDescription,
   updateIdentification,
   updateTitle,
-  deleteProject,
-  validateIdentification,
-  validateTitle,
-  validateDescription
+  deleteProject
 } from '../../../../redux/actions/index';
 
 const ProjectInstance = props => {
-  let newDescription = '';
-  let newIdentification = '';
-  let newTitle = '';
+  const index = props.index;
+  let newDescription = props.description;
+  let newIdentification = props.identification;
+  let newTitle = props.projectTitle;
+
+  const descriptPlaceholder =
+    'Description(optional): no longer than 130 characters';
+  const idPlaceholder = 'ID: 5';
+  const titlePlaceholder = 'Title: 1-22 characters';
+
+  const validDescription = props.validDescription;
+  const validID = props.validID;
+  const validTitle = props.validTitle;
+
+  const updateMode = props.updateMode;
 
   const updateTogglerHandler = () => {
-    if (props.updateMode) {
-      if (
-        props.description ===
-          'Description(optional): no longer than 130 characters' &&
-        newDescription > 130
-      ) {
+    if (updateMode) {
+      if (!validDescription) {
         return;
-      } else if (newDescription !== '') {
-        props.onUpdateDescription(props.index, newDescription);
       }
-      if (props.identification === 'ID: 5' && newIdentification !== 5) {
+      if (!validID) {
         return;
-      } else if (newIdentification !== '') {
-        props.onUpdateIdentification(props.index, newIdentification);
       }
-      if (
-        (props.projectTitle === 'Title: less than 23 long' &&
-          newTitle === '') ||
-        newTitle > 23
-      ) {
+      if (!validTitle) {
         return;
-      } else if (newTitle !== '') {
-        props.onUpdateTitle(props.index, newTitle, props.projectTitle);
       }
     }
-    props.onUpdateToggle(props.index);
+    props.onUpdateToggle(index);
   };
 
   const descriptionUpdated = event => {
     newDescription = event.target.value;
-    props.onDescriptionValidation(props.index, newDescription);
+    props.onUpdateDescription(index, newDescription);
   };
 
   const identificationUpdated = event => {
     newIdentification = event.target.value.toUpperCase();
-    props.onIdValidation(props.index, newIdentification);
+    props.onUpdateIdentification(index, newIdentification);
   };
 
   const titleUpdated = event => {
     newTitle = event.target.value;
-    props.onTitleVlaidation(props.index, newTitle, props.projectTitle);
+    props.onUpdateTitle(index, newTitle);
   };
 
   const displayedDescription = () => {
     let descriptionClass = null;
 
-    if (props.updateMode) {
-      if (props.validDescription) {
+    if (updateMode) {
+      if (validDescription) {
         descriptionClass = null;
       } else {
-        console.log('here');
         descriptionClass = classes.incorrect;
       }
       return (
+        // have default value be description variable not just new description
+        //    this should allow you to never have to check the "old" of anything
+        //    the description will just always be checked against the requirements and only
+        //    what is in the store
         <textarea
           className={descriptionClass}
           type="text"
-          placeholder={props.description}
+          placeholder={descriptPlaceholder}
           name="description"
           defaultValue={newDescription}
           onChange={descriptionUpdated}
@@ -90,7 +88,7 @@ const ProjectInstance = props => {
     let identificationClass = classes.identification;
     if (props.updateMode) {
       identificationClass = classes.incorrectID;
-      if (props.validID) {
+      if (validID) {
         identificationClass = classes.identification;
       } else {
         identificationClass = classes.incorrectID;
@@ -99,7 +97,7 @@ const ProjectInstance = props => {
         <input
           className={identificationClass}
           type="text"
-          placeholder={props.identification}
+          placeholder={idPlaceholder}
           name="identity"
           defaultValue={newIdentification}
           onChange={identificationUpdated}
@@ -114,7 +112,7 @@ const ProjectInstance = props => {
     let titleClass = classes.title;
     if (props.updateMode) {
       titleClass = classes.incorrectTitle;
-      if (props.validTitle) {
+      if (validTitle) {
         titleClass = classes.title;
       } else {
         titleClass = classes.incorrectTitle;
@@ -123,7 +121,7 @@ const ProjectInstance = props => {
         <input
           className={titleClass}
           type="text"
-          placeholder={props.projectTitle}
+          placeholder={titlePlaceholder}
           name="projTitle"
           defaultValue={newTitle}
           onChange={titleUpdated}
@@ -135,7 +133,7 @@ const ProjectInstance = props => {
   };
 
   const deleteHandler = () => {
-    props.onDelete(props.index);
+    props.onDelete(index);
   };
 
   return (
@@ -171,15 +169,8 @@ const mapDispatchToProps = dispatch => {
       dispatch(updateDescription(index, newDescription)),
     onUpdateIdentification: (index, newIdentification) =>
       dispatch(updateIdentification(index, newIdentification)),
-    onUpdateTitle: (index, newTitle, oldTitle) =>
-      dispatch(updateTitle(index, newTitle, oldTitle)),
-    onDelete: index => dispatch(deleteProject(index)),
-    onIdValidation: (index, identification) =>
-      dispatch(validateIdentification(index, identification)),
-    onTitleVlaidation: (index, title, oldTitle) =>
-      dispatch(validateTitle(index, title, oldTitle)),
-    onDescriptionValidation: (index, description) =>
-      dispatch(validateDescription(index, description))
+    onUpdateTitle: (index, newTitle) => dispatch(updateTitle(index, newTitle)),
+    onDelete: index => dispatch(deleteProject(index))
   };
 };
 

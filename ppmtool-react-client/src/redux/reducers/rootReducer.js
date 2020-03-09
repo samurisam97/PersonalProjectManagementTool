@@ -7,10 +7,7 @@ import {
   DELETE_PROJECT,
   INVALID_IDENTIFICATION,
   INVALID_TITLE,
-  INVLAID_DESCRIPTION,
-  VALID_IDENTIFICATION,
-  VALID_TITLE,
-  VLAID_DESCRIPTION
+  INVLAID_DESCRIPTION
 } from '../actions/properties';
 
 export const initialState = {
@@ -31,6 +28,38 @@ export const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    case CREATE_PROJECT:
+      let size = state.projects.length;
+      return {
+        ...state,
+        projects: [
+          ...state.projects.slice(0, size),
+          {
+            index: size,
+            id: '',
+            validID: false,
+            title: '',
+            validTitle: false,
+            description: '',
+            validDescription: true,
+            updateMode: true,
+            updateText: 'Finished Creating',
+            deleted: false
+          }
+        ]
+      };
+    case DELETE_PROJECT:
+      return {
+        ...state,
+        projects: [
+          ...state.projects.slice(0, action.payload.index),
+          {
+            ...state.projects[action.payload.index],
+            deleted: true
+          },
+          ...state.projects.slice(action.payload.index + 1)
+        ]
+      };
     case TOGGLE_UPDATE_MODE:
       if (
         state.user.loggedIn &&
@@ -67,19 +96,6 @@ const rootReducer = (state = initialState, action) => {
           ]
         };
       }
-    case UPDATE_DESCRIPTION:
-      return {
-        ...state,
-        projects: [
-          ...state.projects.slice(0, action.payload.index),
-          {
-            ...state.projects[action.payload.index],
-            description: action.payload.description,
-            validDescription: true
-          },
-          ...state.projects.slice(action.payload.index + 1)
-        ]
-      };
     case UPDATE_IDENTIFICATION:
       return {
         ...state,
@@ -106,38 +122,20 @@ const rootReducer = (state = initialState, action) => {
           ...state.projects.slice(action.payload.index + 1)
         ]
       };
-    case CREATE_PROJECT:
-      let size = state.projects.length;
-      return {
-        ...state,
-        projects: [
-          ...state.projects.slice(0, size),
-          {
-            index: size,
-            id: 'ID: 5',
-            validID: false,
-            title: 'Title: less than 23 long',
-            validTitle: false,
-            description: 'Description(optional): no longer than 130 characters',
-            validDescription: true,
-            updateMode: true,
-            updateText: 'Finished Creating',
-            deleted: false
-          }
-        ]
-      };
-    case DELETE_PROJECT:
+    case UPDATE_DESCRIPTION:
       return {
         ...state,
         projects: [
           ...state.projects.slice(0, action.payload.index),
           {
             ...state.projects[action.payload.index],
-            deleted: true
+            description: action.payload.description,
+            validDescription: true
           },
           ...state.projects.slice(action.payload.index + 1)
         ]
       };
+
     case INVALID_IDENTIFICATION:
       return {
         ...state,
@@ -170,42 +168,6 @@ const rootReducer = (state = initialState, action) => {
           {
             ...state.projects[action.payload.index],
             validDescription: false
-          },
-          ...state.projects.slice(action.payload.index + 1)
-        ]
-      };
-    case VALID_IDENTIFICATION:
-      return {
-        ...state,
-        projects: [
-          ...state.projects.slice(0, action.payload.index),
-          {
-            ...state.projects[action.payload.index],
-            validID: true
-          },
-          ...state.projects.slice(action.payload.index + 1)
-        ]
-      };
-    case VALID_TITLE:
-      return {
-        ...state,
-        projects: [
-          ...state.projects.slice(0, action.payload.index),
-          {
-            ...state.projects[action.payload.index],
-            validTitle: true
-          },
-          ...state.projects.slice(action.payload.index + 1)
-        ]
-      };
-    case VLAID_DESCRIPTION:
-      return {
-        ...state,
-        projects: [
-          ...state.projects.slice(0, action.payload.index),
-          {
-            ...state.projects[action.payload.index],
-            validDescription: true
           },
           ...state.projects.slice(action.payload.index + 1)
         ]

@@ -48,6 +48,7 @@
 }
 
 .Description textarea.incorrect {
+  color: whitesmoke;
   background-color: maroon;
   border: 2px solid maroon;
 }
@@ -85,6 +86,7 @@
 }
 
 .IdAndTitle input.incorrectID {
+  color: whitesmoke;
   position: relative;
   left: -30px;
   font-family: 'Courier New', Courier, monospace;
@@ -96,6 +98,10 @@
   border: 2px solid maroon;
 }
 
+.IdAndTitle input.incorrectID::placeholder {
+  color: rgb(187, 186, 186);
+}
+
 .IdAndTitle input.title {
   position: relative;
   top: 0px;
@@ -105,6 +111,7 @@
 }
 
 .IdAndTitle input.incorrectTitle {
+  color: whitesmoke;
   position: relative;
   top: 0px;
   height: 24px;
@@ -112,4 +119,8 @@
   font-size: 25px;
   background-color: maroon;
   border: 2px solid maroon;
+}
+
+.IdAndTitle input.incorrectTitle::placeholder {
+  color: rgb(187, 186, 186);
 }
