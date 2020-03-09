@@ -11,6 +11,10 @@
   color: #3e78b2;
 }
 
+.Header:hover {
+  cursor: inherit;
+}
+
 .Header ul {
   list-style-type: none;
   margin: 0;

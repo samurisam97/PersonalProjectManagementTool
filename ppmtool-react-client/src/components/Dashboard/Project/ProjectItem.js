@@ -9,19 +9,21 @@ const ProjectItem = props => {
       {props.projectsList.map((value, index) => {
         if (!value.deleted) {
           return (
-            <div className={classes.ProjectItem}>
-              <ProjectInstance
-                key={value.index}
-                index={value.index}
-                identification={value.id}
-                validID={value.validID}
-                projectTitle={value.title}
-                validTitle={value.validTitle}
-                description={value.description}
-                validDescription={value.validDescription}
-                updateMode={value.updateMode}
-                updateText={value.updateText}
-              />
+            <div>
+              <div className={classes.ProjectItem}>
+                <ProjectInstance
+                  key={value.index}
+                  index={value.index}
+                  identification={value.id}
+                  validID={value.validID}
+                  projectTitle={value.title}
+                  validTitle={value.validTitle}
+                  description={value.description}
+                  validDescription={value.validDescription}
+                  updateMode={value.updateMode}
+                  updateText={value.updateText}
+                />
+              </div>
             </div>
           );
         } else {
