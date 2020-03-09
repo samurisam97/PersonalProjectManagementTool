@@ -1,0 +1,29 @@
+.LoginForm {
+  display: none;
+  position: sticky;
+  float: right;
+  text-align: center;
+  background-color: #004ba8;
+  border: 0;
+  padding: 20px;
+  width: 200px;
+  height: 90px;
+}
+
+.LoginForm input {
+  padding: 4px 4px 4px 4px;
+  color: #4a525a;
+  background-color: #3e78b2;
+  border: 1px solid #07070a;
+  border-radius: 5px;
+}
+
+.LoginForm button {
+  margin-top: 5px;
+  padding: 5px 7px 7px 7px;
+  font-size: 14px;
+}
+
+.LoginForm button:hover {
+  background-color: #4a525a;
+}

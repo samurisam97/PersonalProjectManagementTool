@@ -1,0 +1,18 @@
+.PageTitle {
+  text-align: left;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.PageTitle h1 {
+  text-decoration: none;
+  font: inherit;
+  margin: 0;
+  padding-top: 4px;
+  padding-left: 12px;
+  color: #3e78b2;
+}
+
+.PageTitle h1:hover {
+  cursor: pointer;
+}

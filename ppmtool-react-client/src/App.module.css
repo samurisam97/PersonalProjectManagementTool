@@ -1,3 +1,14 @@
-.App {
-  width: 100%;
+.App button {
+  background-color: #07070a;
+  font: inherit;
+  font-weight: bold;
+  border: 1px solid #07070a;
+  color: whitesmoke;
+}
+
+.App button:hover {
+  background-color: #4a525a;
+  border: 1px solid #07070a;
+  font-weight: bold;
+  cursor: pointer;
 }

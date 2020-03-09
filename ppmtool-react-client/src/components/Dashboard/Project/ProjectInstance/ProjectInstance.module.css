@@ -1,0 +1,115 @@
+.ProjectButtons {
+  position: relative;
+  top: -20px;
+  left: 445px;
+  z-index: 0;
+}
+
+.ProjectButtons button {
+  position: relative;
+  display: block;
+  width: 150px;
+  margin-top: 2px;
+  background-color: #07070a;
+  font: inherit;
+  font-weight: bold;
+  font-size: small;
+  padding-bottom: 4px;
+  border: 1px solid #07070a;
+  color: whitesmoke;
+}
+
+.ProjectButtons button:hover {
+  background-color: #4a525a;
+}
+
+.ProjectButtons button.Delete:hover {
+  background-color: maroon;
+}
+
+.Description {
+  position: relative;
+  top: -111px;
+  left: 10px;
+  width: 400px;
+}
+
+.Description p {
+  position: relative;
+  top: -20px;
+  overflow-wrap: break-word;
+}
+
+.Description textarea {
+  text-align: left;
+  resize: none;
+  width: 420px;
+  height: 80px;
+}
+
+.Description textarea.incorrect {
+  background-color: maroon;
+  border: 2px solid maroon;
+}
+
+.IdAndTitle {
+  list-style-type: none;
+  position: relative;
+  top: -20px;
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+.IdAndTitle h1 {
+  position: relative;
+  left: -30px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 50px;
+  margin: 0 0 -2px 0;
+}
+
+.IdAndTitle p {
+  margin: 0 0 0 0;
+  font-size: 25px;
+}
+
+.IdAndTitle input.identification {
+  position: relative;
+  left: -30px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 40px;
+  width: 160px;
+  height: 30px;
+  margin: 15px 0 2px 0;
+}
+
+.IdAndTitle input.incorrectID {
+  position: relative;
+  left: -30px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 40px;
+  width: 160px;
+  height: 30px;
+  margin: 15px 0 2px 0;
+  background-color: maroon;
+  border: 2px solid maroon;
+}
+
+.IdAndTitle input.title {
+  position: relative;
+  top: 0px;
+  height: 24px;
+  margin: 0 0 2px 0;
+  font-size: 25px;
+}
+
+.IdAndTitle input.incorrectTitle {
+  position: relative;
+  top: 0px;
+  height: 24px;
+  margin: 0 0 2px 0;
+  font-size: 25px;
+  background-color: maroon;
+  border: 2px solid maroon;
+}

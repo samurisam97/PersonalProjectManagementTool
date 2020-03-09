@@ -1,0 +1,35 @@
+.Right {
+  padding-top: 0;
+  position: absolute;
+  right: 30px;
+  top: 0;
+}
+
+.Right ul li {
+  display: inline;
+}
+
+.Right button {
+  padding: 14px 11px 14px 10px;
+  font-weight: normal;
+  font-size: 16px;
+  border: none;
+  border-radius: 0;
+  color: whitesmoke;
+}
+
+.Right button.dropdown {
+  padding-bottom: 16px;
+  background-color: #004ba8;
+}
+
+.Right button.dropdown:hover {
+  background-color: #004ba8;
+}
+
+.Right button:hover {
+  border: none;
+  font-weight: normal;
+  cursor: pointer;
+  background-color: #24272b;
+}
